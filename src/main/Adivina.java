@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Adivina {
-	
+
 	static String file = "record.txt";
-	
+
 	public static int knowPreviousRecord() {
 		int att = 0;
 
@@ -29,6 +29,12 @@ public class Adivina {
 			att = Integer.parseInt(line);
 		} catch (IOException e) {
 			System.out.println("Error leyendo el archivo: " + e.getMessage());
+		} catch (NumberFormatException e1) { // comprobamos que lo que esté en el fichero sea un número
+			try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+				bw.write(String.valueOf(att));
+			} catch (IOException e) {
+				System.out.println("Error al corregir el archivo: " + e.getMessage());
+			}
 		}
 
 		return att;
