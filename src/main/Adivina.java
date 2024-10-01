@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Adivina {
-
+	
 	public static int knowPreviousRecord() {
 		String file = "record.txt";
 		int att = 0;
 
 		if (!new File(file).exists()) {
-			try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-				writer.write(String.valueOf(att));
+			try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+				bw.write(String.valueOf(att));
 			} catch (IOException e) {
 				System.out.println("Error al crear el archivo: " + e.getMessage());
 			}
@@ -36,8 +36,8 @@ public class Adivina {
 	public static void writeNewRecord(int att) {
 		String file = "record.txt";
 
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-			writer.write(String.valueOf(att));
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+			bw.write(String.valueOf(att));
 		} catch (IOException e) {
 			System.out.println("Error writing to file: " + e.getMessage());
 		}
@@ -70,7 +70,7 @@ public class Adivina {
 							writeNewRecord(tries);
 						}
 						System.out.println("Felicidades, ¡acertaste!");
-						System.out.print("¿Deseas intentarlo otra vez? (s/n)");
+						System.out.print("¿Deseas intentarlo otra vez? (s/n) ");
 						String res = entry.readLine();
 
 						if (!res.equals("s")) {
