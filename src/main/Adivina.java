@@ -10,8 +10,9 @@ import java.io.InputStreamReader;
 
 public class Adivina {
 	
+	static String file = "record.txt";
+	
 	public static int knowPreviousRecord() {
-		String file = "record.txt";
 		int att = 0;
 
 		if (!new File(file).exists()) {
