@@ -68,8 +68,6 @@ public class Adivina {
 						if ((tries < att && att != 0) || att == 0) {
 							System.out.println("¡Batiste un nuevo record!");
 							writeNewRecord(tries);
-						} else {
-
 						}
 						System.out.println("Felicidades, ¡acertaste!");
 						System.out.print("¿Deseas intentarlo otra vez? (s/n)");
